@@ -12,6 +12,7 @@ namespace WishList.Controllers
 
         public ItemController(ApplicationDbContext applicationDbContext)
         {
+            _context = applicationDbContext;
         }
         [HttpGet]
         public IActionResult Create()
@@ -37,13 +38,9 @@ namespace WishList.Controllers
         }
         public IActionResult Index(List<Item> items)
         {
-            List<Item> list = new List<Item>();
+            var model = _context.Items.ToList();
 
-            foreach (Item item in _context.Items)
-            {
-                list.Add(item);
-            }
-            return View("Index", list);
+            return View("Index", model);
         }
     }
 }
