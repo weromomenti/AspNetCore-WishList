@@ -36,7 +36,7 @@ namespace WishList.Controllers
 
             return RedirectToAction("Index");
         }
-        public IActionResult Index(List<Item> items)
+        public IActionResult Index()
         {
             var model = _context.Items.ToList();
 
