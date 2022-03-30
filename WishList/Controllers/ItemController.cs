@@ -12,7 +12,6 @@ namespace WishList.Controllers
 
         public ItemController(ApplicationDbContext applicationDbContext)
         {
-            _context = applicationDbContext;
         }
         [HttpGet]
         public IActionResult Create()
